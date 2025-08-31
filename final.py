@@ -66,7 +66,7 @@ class uav:
             self.move_real()
             dleft = self.find_distance(self.curr, self.target)
             self.dleft = dleft
-            print(f"t={int(t)}s  Distance to target: {self.dleft:.2f} m  Velocity: {self.c_v:.2f} m/s")
+            # print(f"t={int(t)}s  Distance to target: {self.dleft:.2f} m  Velocity: {self.c_v:.2f} m/s")
 
             if dleft <= 5:
                 print(f"Reached {self.target} <-----")
@@ -75,9 +75,9 @@ class uav:
             t += self.dt
 
             if t - last_print_time >= 5:
-                # print(f"t={int(t)}s  Distance to target: {self.dleft:.2f} m  Velocity: {self.c_v:.2f} m/s")
-               with open('log.txt','a') as f:
-                f.write(f't={int(t)}s , Distance to target({self.target}): {self.dleft}, Velocity: {self.c_v}m/s\n')
+                print(f"t={int(t)}s  Distance to target: {self.dleft:.2f} m  Velocity: {self.c_v:.2f} m/s")
+                with open('log.txt','a') as f:
+                    f.write(f't={int(t)}s , Distance to target({self.target}): {self.dleft}, Velocity: {self.c_v}m/s\n')
                 last_print_time = t
 
 
